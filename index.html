@@ -13,7 +13,7 @@
         }
 
         #wrap {
-            width: 800px;
+            width: 100%;
             margin: 0px auto;
         }
 
@@ -22,14 +22,48 @@
             background: #09f;
             margin: 10px 0px
         }
+        /*-------------------------------*/
+
+        .button {
+            padding: 1px;
+        }
+
+        .wrapper {
+            float: left;
+            background: yellow;
+            margin: 0 20px 0 0;
+            position: relative
+        }
     </style>
 </head>
 
 <body>
 
+    <div id="btn1" class="wrapper2">
+        <div class="button">
+            Mouse Here 1 </div>
+        <div class="container">
+            container </div>
+    </div>
+    <div id="btn1" class="wrapper2">
+        <div class="button">
+            Mouse Here 2 </div>
+        <div class="container">
+            container </div>
+    </div>
+    <div id="btn1" class="wrapper2">
+        <div class="button">
+            Mouse Here 3 </div>
+        <div class="container">
+            container </div>
+    </div>
+
+    <!-------------------------------------->
+
 
     <div id="status">
         0 | 0
+    </div>
     </div>
     <div id="wrap">
         <img src="https://s.abcnews.com/images/Entertainment/gty_shia_labeouf_jc_141021_16x9_1600.jpg">
@@ -37,7 +71,36 @@
 
     <!-------------------------------------->
 
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script type="text/javascript">
+        //--------------DROP MENUS-----------------
+
+        $(document).ready(function () {
+            $(".container").hide();
+
+            // created array for ea btn
+            $(["btn1", "btn2", "btn3"]).each(function () {
+                var btn = this;
+                var con = $("#" + btn).children(".container");
+                // our hover / mouseover
+                $("#" + btn).hover(
+                    function () {
+                        // unhide previous hover
+                        $(".hover").mouseout();
+                        $(this).addClass(".hover");
+
+                        var cache = $(con).children("p");
+                        if (cache.size()) {
+                            adfa
+                        }
+                    }
+                )
+            })
+        });
+
+        //----------SCROLLING---------------------
+
+
         function yHandler() {
             // console.log("you're in yHandler")
             var wrap = document.getElementById("wrap")
